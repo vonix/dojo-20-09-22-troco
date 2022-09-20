@@ -7,12 +7,19 @@ export default (amountDue, amountPaid) => {
   for (const ballot of listBallots) {
     const qtde = Math.floor(amountChange/ballot)
     if (!qtde) continue
-
     ballots[ballot] = qtde
     amountChange -= ballot * ballots[ballot]
+  }
+
+  for (const coin of listCoins) {
+    const qtde = Math.floor(amountChange/coin)
+    if (!qtde) continue
+    ballots[coin] = qtde
+    amountChange -= coin * ballots[coin]
   }
 
   return ballots
 }
 
 const listBallots = [10, 5]
+const listCoins = [0.5]

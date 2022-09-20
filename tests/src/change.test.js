@@ -41,4 +41,10 @@ describe('change', () => {
       [coin50]: 1
     })
   })
+
+  it('should returns that totalPaid is less than amountDue', () => {
+    const amountDue = 100
+    const amountPaid = 50
+    expect(() => change(amountDue, amountPaid)).toThrow(Error)
+  })
 })

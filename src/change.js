@@ -2,6 +2,10 @@ export default (amountDue, amountPaid) => {
   let amountChange = amountPaid - amountDue 
   if (!amountChange) return 0
 
+  if (amountChange < 0) {
+    throw new Error()
+  }
+
   const ballots = {}
 
   for (const ballot of listBallots) {
